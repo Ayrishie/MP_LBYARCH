@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
-// Function prototypes
-extern void imgCvtGrayDoubleToInt(uint8_t* output, double* input, int width, int height);
-extern double debug_temp; // Declare debug_temp as an external variable
+// Declare the assembly function
+extern void imgCvtGrayDoubleToInt(unsigned char* output, double* input, int width, int height);
 
 int main() {
     int width, height;
@@ -17,11 +15,10 @@ int main() {
 
     int size = width * height;
     double* input = (double*)malloc(size * sizeof(double));
-    uint8_t* output = (uint8_t*)malloc(size * sizeof(uint8_t));
+    unsigned char* output = (unsigned char*)malloc(size * sizeof(unsigned char));
+
     if (!input || !output) {
         printf("Memory allocation failed! Exiting...\n");
-        free(input);
-        free(output);
         return 1;
     }
 
@@ -35,18 +32,15 @@ int main() {
         }
     }
 
+    printf("\nCalling assembly function...\n");
     imgCvtGrayDoubleToInt(output, input, width, height);
+    printf("Assembly function completed.\n");
 
-    printf("Debugging Scaled Values (f * 255):\n");
-    for (int i = 0; i < size; i++) {
-        imgCvtGrayDoubleToInt(&output[i], &input[i], 1, 1); // Process one pixel
-        printf("Pixel %d: Scaled value = %.2f\n", i, debug_temp);
-    }
-
-    printf("Converted Integer Pixel Values:\n");
+    // Print the converted values
+    printf("\nConverted Integer Pixel Values:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            printf("%3d ", output[i * width + j]); // Ensure correct indexing
+            printf("%3d ", output[i * width + j]);
         }
         printf("\n");
     }
