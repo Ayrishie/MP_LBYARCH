@@ -1,8 +1,28 @@
+#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 // Declare the assembly function
 extern void imgCvtGrayDoubleToInt(unsigned char* output, double* input, int width, int height);
+
+// Function to measure execution time using QueryPerformanceCounter
+double measureExecutionTime(unsigned char* output, double* input, int width, int height) {
+    LARGE_INTEGER frequency, start_time, end_time;
+    double total_time = 0.0;
+
+    // Get the frequency of the performance counter
+    QueryPerformanceFrequency(&frequency);
+
+    for (int i = 0; i < 30; i++) { // Run 30 times for averaging
+        QueryPerformanceCounter(&start_time); // Start timer
+        imgCvtGrayDoubleToInt(output, input, width, height); // Call the assembly function
+        QueryPerformanceCounter(&end_time);   // End timer
+
+        total_time += (double)(end_time.QuadPart - start_time.QuadPart) / frequency.QuadPart;
+    }
+
+    return total_time / 30.0; // Return the average execution time
+}
 
 int main() {
     int width, height;
@@ -19,6 +39,8 @@ int main() {
 
     if (!input || !output) {
         printf("Memory allocation failed! Exiting...\n");
+        free(input);
+        free(output);
         return 1;
     }
 
@@ -32,9 +54,9 @@ int main() {
         }
     }
 
-    printf("\nCalling assembly function...\n");
+    
     imgCvtGrayDoubleToInt(output, input, width, height);
-    printf("Assembly function completed.\n");
+ 
 
     // Print the converted values
     printf("\nConverted Integer Pixel Values:\n");
@@ -44,6 +66,10 @@ int main() {
         }
         printf("\n");
     }
+
+    // Measure and display execution time
+    double avg_time = measureExecutionTime(output, input, width, height);
+    printf("Average Execution Time for %dx%d: %.9f seconds\n", height, width, avg_time);
 
     free(input);
     free(output);
