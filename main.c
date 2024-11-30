@@ -86,6 +86,7 @@ int main() {
     }
 
     int size = width * height;
+    int choice;
     double* input = (double*)malloc(size * sizeof(double));
     unsigned char* output_assembly = (unsigned char*)malloc(size * sizeof(unsigned char));
     unsigned char* output_reference = (unsigned char*)malloc(size * sizeof(unsigned char));
@@ -98,15 +99,36 @@ int main() {
         return 1;
     }
 
-    // Seed the random number generator for varied outputs each run
-    srand((unsigned int)time(NULL));
+    printf("Random pixel values [Input: 0] or input pixel values [Input: 1]:");
+    if (scanf_s("%d", &choice) != 1 || choice >= 2 || choice <= -1) {
+        printf("Invalid choice input! Exiting...\n");
+        return 1;
+    }
+
+    if (choice == 1) {
+        // Seed the random number generator for varied outputs each run
+        srand((unsigned int)time(NULL));
+
+        printf("Enter pixel values (range 0.0 to 1.0, space-separated, row by row):\n");
+        for (int i = 0; i < size; i++) {
+            if (scanf_s("%lf", &input[i]) != 1 || input[i] < 0.0 || input[i] > 1.0) {
+                printf("Invalid pixel value! Exiting...\n");
+                free(input);
+                free(output_assembly);
+                free(output_reference);
+                return 1;
+            }
+        }
+    }
 
     // Initialize input with random values
-    printf("Generating random pixel values...\n");
-    for (int i = 0; i < size; i++) {
-        int raw_rand = rand(); // Generate a random integer
-        input[i] = (double)raw_rand / RAND_MAX; // Scale to [0.0, 1.0]
-        printf("rand() = %d, Scaled = %.6f\n", raw_rand, input[i]); // Debugging information
+    if (choice == 0) {
+        printf("Generating random pixel values...\n");
+        for (int i = 0; i < size; i++) {
+            int raw_rand = rand(); // Generate a random integer
+            input[i] = (double)raw_rand / RAND_MAX; // Scale to [0.0, 1.0]
+            printf("rand() = %d, Scaled = %.6f\n", raw_rand, input[i]); // Debugging information
+        }
     }
 
     // Measure execution time with debugging
@@ -129,4 +151,3 @@ int main() {
 
     return 0;
 }
-

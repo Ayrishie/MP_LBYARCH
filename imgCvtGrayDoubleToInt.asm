@@ -37,8 +37,8 @@ col_loop:
     cvttsd2si eax, xmm0               ; Convert to integer (truncated)
 
     ; Clamp to [0, 255]
-    test eax, eax                     ; Check if < 0
-    jns skip_clamp_to_zero            ; Skip if >= 0
+    cmp eax, 0                        ; Compare eax with 0
+    jge skip_clamp_to_zero            ; Jump if >= to 0
     xor eax, eax                      ; Clamp to 0
 skip_clamp_to_zero:
     cmp eax, 255                      ; Check if > 255

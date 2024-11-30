@@ -131,7 +131,7 @@
     <CustomBuild Include="imgCvtGrayDoubleToInt.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">c:\nasm\nasm -f win64 imgCvtGrayDoubleToInt.asm</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\NASM\nasm -f win64 imgCvtGrayDoubleToInt.asm</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgCvtGrayDoubleToInt.obj</Outputs>
     </CustomBuild>
   </ItemGroup>
