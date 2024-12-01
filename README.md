@@ -7,9 +7,20 @@
 
 | Input Size    | Total Pixels | Execution Time (seconds) | Time per Pixel (seconds/pixel) |
 |---------------|--------------|--------------------------|---------------------------------|
-| 10 × 10       | 100          | 0.000001240              | $$ \frac{0.000001240}{100} = 1.24 \times 10^{-8} $$ |
-| 100 × 100     | 10,000       | 0.000064717              | $$ \frac{0.000064717}{10,000} = 6.47 \times 10^{-9} $$ |
-| 1000 × 1000   | 1,000,000    | 0.004341680              | $$ \frac{0.004341680}{1,000,000} = 4.34 \times 10^{-9} $$ |
+| 10 × 10       | 100          | 0.000001240              | 
+                                                            $$ 
+                                                            \frac{0.000001240}{100} = 1.24 \times 10^{-8} 
+                                                            $$ 
+                                                          |
+| 100 × 100     | 10,000       | 0.000064717              |  
+                                                            $$ 
+                                                            \frac{0.000064717}{10,000} = 6.47 \times 10^{-9} 
+                                                            $$ 
+                                                          |
+| 1000 × 1000   | 1,000,000    | 0.004341680              | $$
+                                                            \frac{0.004341680}{1,000,000} = 4.34 \times 10^{-9} 
+                                                            $$ 
+                                                          |
 
 Execution Time Scales in Relation to Input Size
 * The execution time increases as the input size increases.
@@ -24,7 +35,8 @@ Efficiency per Pixel (Seconds/Pixel)
 
 From 10 × 10 to 100 × 100
 * Pixels increase by a factor of 100.
-* Execution time increases by a factor of approximately
+* Execution time increases by a factor of approximately:
+
 $$
 \frac{0.000064717}{0.000001240} \approx 52
 $$.
@@ -32,6 +44,7 @@ $$.
 From 100 × 100 to 1000 × 1000
 * Pixels increase by a factor of 100.
 * Execution time increases by a factor of approximately
+
 $$
 \frac{0.004341680}{0.000064717} \approx 67
 $$.
