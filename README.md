@@ -1,26 +1,24 @@
 # MP_LBYARCH
+## Introduction
+
+In this README file, we will be anlyzing our program's performance. Our program aims to convert the grayscale image representation from float-based to integer-based values by muliplying the float values by 255 and **truncating** it, as seen in the equation below:
+
+$$
+\text{f} \times 255 = \text{i}
+$$
+
+In this case, we will be analyzing the average execution times for 10 × 10, 100 × 100, and 1000 × 1000. Additionally, we will be showing a sample of the output result with the correctness check. 
+
 
 ## Execution Time and Short Analysis of the Performance
 
 ### Performance Analysis
 
-
-| Input Size    | Total Pixels | Execution Time (seconds) | Time per Pixel (seconds/pixel) |
-|---------------|--------------|--------------------------|---------------------------------|
-| 10 × 10       | 100          | 0.000001240              | 
-                                                            $$ 
-                                                            \frac{0.000001240}{100} = 1.24 \times 10^{-8} 
-                                                            $$ 
-                                                          |
-| 100 × 100     | 10,000       | 0.000064717              |  
-                                                            $$ 
-                                                            \frac{0.000064717}{10,000} = 6.47 \times 10^{-9} 
-                                                            $$ 
-                                                          |
-| 1000 × 1000   | 1,000,000    | 0.004341680              | $$
-                                                            \frac{0.004341680}{1,000,000} = 4.34 \times 10^{-9} 
-                                                            $$ 
-                                                          |
+| Input Size    | Total Pixels | Average Execution Time (seconds) | Time per Pixel (seconds/pixel) |
+|---------------|--------------|----------------------------------|---------------------------------|
+| 10 × 10       | 100          | 0.000001087                      | (0.000001240 / 100) = 1.09 × 10⁻⁸ |
+| 100 × 100     | 10,000       | 0.000046957                      | (0.000046957 / 10,000) = 4.70 × 10⁻⁹ |
+| 1000 × 1000   | 1,000,000    | 0.004206260                      | (0.004206260 / 1,000,000) = 4.21 × 10⁻⁹ |
 
 Execution Time Scales in Relation to Input Size
 * The execution time increases as the input size increases.
@@ -33,21 +31,22 @@ Efficiency per Pixel (Seconds/Pixel)
 
 ### Scaling Analysis
 
-From 10 × 10 to 100 × 100
+From 10 x 10 to 100 x 100
+* Pixels increase by a factor of 100.
+* Execution time increases by a factor of approximately:
+
+
+$$
+\frac{0.000046957}{0.000001087} \approx 43 
+$$
+
+From 100 x 100 to 1000 x 1000
 * Pixels increase by a factor of 100.
 * Execution time increases by a factor of approximately:
 
 $$
-\frac{0.000064717}{0.000001240} \approx 52
-$$.
-
-From 100 × 100 to 1000 × 1000
-* Pixels increase by a factor of 100.
-* Execution time increases by a factor of approximately
-
+\frac{0.004206260}{0.000046957} \approx 89
 $$
-\frac{0.004341680}{0.000064717} \approx 67
-$$.
 
 Since, in each scenario, the pixels increase by 100 we can expect that the execution time should also increase by 100-fold if we assume that the relationship between the execution time to be linear or: 
 
@@ -55,14 +54,27 @@ $$
 \text{Execution Time} \propto \text{Total Pixels} (\text{Width} \times \text{Height})
 $$
 
-However, the algorithm remains efficient and exhibits good performance even as the input size grows, with execution time increasing by approximately 52 times for a 100-fold increase in pixels and 67 times for another 100-fold increase. Both have their execution times increase less than the expected 100-fold increase. It suggests that system-level optimizations or memory management techniques are helping to handle larger images more efficiently, resulting in slightly better performance than a normal linear increase would suggest.
+However, the algorithm remains efficient and exhibits good performance even as the input size grows, with execution time increasing by approximately 43 times for a 100-fold increase in pixels and 89 times for another 100-fold increase. Both have their execution times increase less than the expected 100-fold increase. It suggests that system-level optimizations or memory management techniques are helping to handle larger images more efficiently, resulting in slightly better performance than a normal linear increase.
+
+## Screenshots of the program output with the correctness check
+### 10 × 10
+![image](https://github.com/user-attachments/assets/4495d5f4-9dd2-4ac1-a58b-42b2dc239bf6)
+![image](https://github.com/user-attachments/assets/cd312922-8073-445b-9a8a-d696ab453f5a)
+![image](https://github.com/user-attachments/assets/2cf3d11f-519b-40e9-9396-0dd4ba64a931)
+
+### 100 × 100 (End only)
+![image](https://github.com/user-attachments/assets/08170d8b-2a09-4624-9f84-30874147e747)
+![image](https://github.com/user-attachments/assets/8b505fc5-0259-429b-a238-4a09fc4dce11)
+
+### 1000 × 1000 (End only)
+![image](https://github.com/user-attachments/assets/4145e9ba-6bc1-42ab-9390-8323e462f06e)
+![image](https://github.com/user-attachments/assets/9ef60d16-6394-483e-9839-34a172ee424b)
+
 
 ## Conclusion
-The code demonstrates good scaling behavior with linear growth in execution time relative to the number of pixels. Additionally, as the input size grows, the system becomes more efficient at managing the larger data, leading to execution time increasing to less than the expected 100-fold. This can be seen as a positive outcome because the system is able to handle the increased load with relatively less overhead.
+The code demonstrates good scaling behavior with linear growth in execution time relative to the number of pixels. Additionally, as the input size grows, the system becomes more efficient at managing the larger data, leading to execution time increasing to less than the expected 100-fold. This a good outcome because the system is able to handle the increased load with relatively less overhead.
 
 
-## Screenshot of the program output with the correctness check
 
-![image](https://github.com/user-attachments/assets/9918d413-0f22-4603-aa9e-790be050d933)
 
 
