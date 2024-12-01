@@ -21,7 +21,7 @@ Where:
 In this case, we analyze the performance by measuring the execution time of the assembly implementation. The execution time is averaged over 30 runs for each of the input image sizes:   
 
 10 × 10 
-100 × 100   
+100 × 100     
 1000 × 1000
 
 Additionally, we will be showing a sample of the output result with the correctness check. 
