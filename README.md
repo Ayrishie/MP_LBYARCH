@@ -24,11 +24,15 @@ Efficiency per Pixel (Seconds/Pixel)
 
 From 10 × 10 to 100 × 100
 * Pixels increase by a factor of 100.
-* Execution time increases by a factor of approximately $$ \( \frac{0.000064717}{0.000001240} \approx 52 \)$$.
+* Execution time increases by a factor of approximately $$
+\frac{0.000064717}{0.000001240} \approx 52
+$$.
 
 From 100 × 100 to 1000 × 1000
 * Pixels increase by a factor of 100.
-* Execution time increases by a factor of approximately $$ \( \frac{0.004341680}{0.000064717} \approx 67 \) $$.
+* Execution time increases by a factor of approximately $$
+  \( \frac{0.004341680}{0.000064717} \approx 67 \)
+  $$.
 
 Since, in each scenario, the pixels increase by 100 we can expect that the execution time should also increase by 100-fold if we assume that the relationship between the execution time to be linear or: 
 
