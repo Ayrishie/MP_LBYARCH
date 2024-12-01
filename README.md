@@ -48,13 +48,13 @@ $$
 \frac{0.004206260}{0.000046957} \approx 89
 $$
 
-Since, in each scenario, the pixels increase by 100 we can expect that the execution time should also increase by 100-fold if we assume that the relationship between the execution time to be linear or: 
+Since the pixels increase by 100 in each scenario, we can expect that the execution time should also increase by 100-fold if we assume that the relationship between the execution time to be linear or: 
 
 $$
 \text{Execution Time} \propto \text{Total Pixels} (\text{Width} \times \text{Height})
 $$
 
-However, the algorithm remains efficient and exhibits good performance even as the input size grows, with execution time increasing by approximately 43 times for a 100-fold increase in pixels and 89 times for another 100-fold increase. Both have their execution times increase less than the expected 100-fold increase. It suggests that system-level optimizations or memory management techniques are helping to handle larger images more efficiently, resulting in slightly better performance than a normal linear increase.
+However, the algorithm remains efficient and exhibits good performance even as the input size grows, with execution time increasing by approximately 43 times for a 100-fold increase in pixels and 89 times for another 100-fold increase. Both have their execution times increase less than the expected 100-fold increase. It suggests that by using assembly to optimize memory management and data access, we can handle larger images more efficiently, resulting in slightly better performance than a normal linear increase.
 
 ## Screenshots of the program output with the correctness check
 ### 10 × 10
