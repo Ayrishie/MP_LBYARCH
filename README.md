@@ -6,11 +6,17 @@
   
 ## Introduction
 
-In this README file, we will be anlyzing our program's performance. Our program aims to convert the grayscale image representation from float-based to integer-based values by muliplying the float values by 255 and **truncating** it, as seen in the equation below:
+In this README file, we will be anlyzing our program's performance. Our program converts grayscale image representations from double-precision floating-point values (float) to 8-bit unsigned integer values (int) using both C and x86 assembly. This conversion is essential for compatibility between libraries that use different data types for image processing.
+
+The conversion is performed by multiplying the float value by 255 (the maximum value for an 8-bit unsigned integer) and truncating it to the nearest integer value. The equation is as follows:
 
 $$
 \text{f} \times 255 = \text{i}
 $$
+
+Where:
+    - 𝑓 is the floating-point value in the range [0, 1].
+    - 𝑖 is the integer value in the range [0, 255].
 
 In this case, we will be analyzing the average execution times for 10 × 10, 100 × 100, and 1000 × 1000. Additionally, we will be showing a sample of the output result with the correctness check. 
 
