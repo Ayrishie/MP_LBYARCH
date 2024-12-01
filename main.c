@@ -151,7 +151,7 @@ int main() {
         double avg_time = measureExecutionTimeWithDebug(output_assembly, input, width, height, looptime);
         printf("\n--------------------------------------------------------------");
 
-        printf("\n Converted Integer Pixel Values:\n");
+        printf("\nConverted Integer Pixel Values:\n");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 printf("%3d ", output_assembly[i * width + j]); // Ensure correct indexing
@@ -185,7 +185,7 @@ int main() {
         // COmpute for the output
         imgCvtGrayDoubleToInt(output_assembly, input, width, height); // Call the assembly function
 
-        printf("\n");
+        printf("\nConverted Integer Pixel Values:\n");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 printf("%3d ", output_assembly[i * width + j]); // Ensure correct indexing
