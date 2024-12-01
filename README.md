@@ -1,4 +1,9 @@
 # MP_LBYARCH
+
+## Group Members
+- Irish Jane Ramos 
+- Gabrielle Mae Arco
+  
 ## Introduction
 
 In this README file, we will be anlyzing our program's performance. Our program aims to convert the grayscale image representation from float-based to integer-based values by muliplying the float values by 255 and **truncating** it, as seen in the equation below:
@@ -69,6 +74,9 @@ However, the algorithm remains efficient and exhibits good performance even as t
 ### 1000 × 1000 (End only)
 ![image](https://github.com/user-attachments/assets/4145e9ba-6bc1-42ab-9390-8323e462f06e)
 ![image](https://github.com/user-attachments/assets/9ef60d16-6394-483e-9839-34a172ee424b)
+
+## Video thats shows the source code, compilation, and execution of the C and x86-64 program.
+https://drive.google.com/file/d/1dHOgSDuFoO6FYIa5Nc5TKzm31kZ1izrJ/view?usp=sharing
 
 
 ## Conclusion
