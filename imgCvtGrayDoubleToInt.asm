@@ -34,7 +34,7 @@ col_loop:
     movsd xmm0, qword [rsi + r10 * 8] ; Load input[index] (double)
     movsd xmm1, qword [scale_factor]  ; Load scale factor (255)
     mulsd xmm0, xmm1                  ; xmm0 = input[index] * 255
-    cvttsd2si eax, xmm0               ; Convert to integer (truncated)
+    cvttsd2si eax, xmm0               ; Convert to integer (truncated) 
 
     ; Clamp to [0, 255]
     cmp eax, 0                        ; Compare eax with 0
