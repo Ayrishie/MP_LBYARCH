@@ -15,8 +15,8 @@ $$
 $$
 
 Where:
-    - 𝑓 is the floating-point value in the range [0, 1].
-    - 𝑖 is the integer value in the range [0, 255].
+- **𝑓** is the floating-point value in the range [0, 1].
+- **𝑖** is the integer value in the range [0, 255].
 
 In this case, we will be analyzing the average execution times for 10 × 10, 100 × 100, and 1000 × 1000. Additionally, we will be showing a sample of the output result with the correctness check. 
 
